@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose your companion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="bg"></div>
+        <header>
+            <a href="#" class="logo">Genshin</a>
+            <div class="toggle"></div>
+            <ul class="navigation">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="Anime genshin.html">Anime</a></li>
+                <li><a href="https://genshin.gg/teams/">Teams</a></li>
+                <li><a href="Login.html">Login</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2>Choose your companion</h2>
+                <p>You can only take five characters with you on adventure. Who will accompany you in your journey? Choose carefully, you're going to be with them for a long time.</p>
+                <a href="https://genshin.hoyoverse.com/">Learn More</a>
+            </div>
+            <div class="imgBox">
+                <img src="Diluc icon.png" class="characters">
+            </div>
+        </div>
+        <ul class="thumb">
+            <li data-text="Diluc" class="active"><img src="Diluc profile.png" onclick="imgSlider('Diluc icon.png');changeBgColor('#fc4a55')"></li>
+            <li data-text="Kaeya"><img src="Kaeya profile.png" onclick="imgSlider('Kaeya Icon.png');changeBgColor('#2093c3')"></li>
+            <li data-text="Venti"><img src="Venti profile.png" onclick="imgSlider('Venti Icon.png');changeBgColor('#219f9c')"></li>
+            <li data-text="Childe"><img src="Childe profile.png" onclick="imgSlider('Childe icon.png');changeBgColor('#E66C2C')"></li>
+            <li data-text="Shogun"><img src="Shogun profile.png" onclick="imgSlider('Shogun icon.png');changeBgColor('#7600bc')"></li>
+        </ul>
+        <ul class="sci">
+            <li><a href="https://www.facebook.com/genshinimpact.es/"><img src="facebook.png"></a></li>
+            <li><a href="https://twitter.com/genshinimpactes"><img src="twitter.png"></a></li>
+            <li><a href="https://www.instagram.com/genshinimpact/"><img src="instagram.png"></a></li>
+        </ul>
+    </section>
+
+    <script>
+
+        let menuToggle = document.querySelector('.toggle');
+        let navigation = document.querySelector('.navigation');
+        menuToggle.onclick = function(){
+            menuToggle.classList.toggle('active')
+            navigation.classList.toggle('active')
+        }
+
+        // change image on click
+        function imgSlider(anything){
+            document.querySelector('.characters').src = anything;
+        }
+
+        //change background color
+        function changeBgColor(color){
+            const bg = document.querySelector('.bg');
+            bg.style.background = color;
+        }
+
+        // add active class in selected thmbnails
+        let el = document.querySelectorAll('.thumb li');
+        for (let i = 0; i < el.length; i++){
+            el[i].onclick = function(){
+                var c = 0;
+                while (c < el.length){
+                    el[c++].className = 'check';
+                }
+                el[i].className = 'check active';
+            }
+        }
+    </script>
+</body>
+</html>
